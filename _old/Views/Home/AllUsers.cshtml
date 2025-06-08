@@ -1,0 +1,10 @@
+@model List<Server.Database.User>
+@{
+    ViewData["Title"] = "All Users";
+}
+<h1>Lista użytkowników dostępnych w serwisie:</h1>
+<ul>
+    @foreach(User user in Model){
+        <li><a href="/Home/Profile?id_user=@user.id_user">@user.nickname</a></li>
+    }
+</ul>

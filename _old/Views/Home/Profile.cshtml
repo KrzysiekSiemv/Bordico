@@ -1,0 +1,22 @@
+@model Server.Database.User
+@{
+    ViewData["Title"] = "Profil użytkownika";
+}
+
+<h2>@Model.nickname (@Model.username)</h2>
+
+<p><strong>Email:</strong> @Model.email_address</p>
+<p><strong>Opis:</strong> @Model.description</p>
+<p><strong>Data utworzenia:</strong> @Model.created_at</p>
+
+@if(Model.id_user != JsonSerializer.Deserialize<User>(Encoding.UTF8.GetString(Context.Session.Get("UserData"))).id_user){
+    <form method="post" asp-controller="Friends" asp-action="Add">
+        <input type="hidden" name="id_user" value="@Model.id_user" />
+        <button type="submit" class="btn btn-primary">Dodaj do znajomych</button>
+    </form>
+
+    <form method="get" asp-controller="Messages" asp-action="Create">
+        <input type="hidden" name="userId" value="@Model.id_user" />
+        <button type="submit" class="btn btn-secondary">Wyślij wiadomość</button>
+    </form>
+}

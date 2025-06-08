@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.krzysztofsmaga.bordico">
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true" android:networkSecurityConfig="@xml/network_security_config">
+		<!-- <meta-data
+			android:name="com.google.firebase.messaging.default_notification_channel_id"
+			android:value="default_channel_id" />
+
+		<meta-data
+			android:name="com.google.firebase.analytics.APP_ID"
+			android:value="1:436336438448:android:38415c36f5ddb49b5b5f75" />
+
+		<meta-data
+			android:name="com.google.android.gms.version"
+			android:value="@integer/google_play_services_version"
+        	tools:replace="android:value" /> -->
+	</application>
+</manifest>

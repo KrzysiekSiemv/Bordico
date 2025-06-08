@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:model="clr-namespace:Bordico.Client.Model"
+            xmlns:vm="clr-namespace:Bordico.Client.ViewModel"
+            xmlns:local="clr-namespace:Bordico.Client.View"
+            xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+            x:Class="Bordico.Client.View.MainPage"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            Shell.NavBarIsVisible="False">
+             <!-- x:DataType="vm:MainViewModel" -->
+</TabbedPage>

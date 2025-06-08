@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Register";
+}
+@model User
+
+<h1>Register to Bordico</h1>
+
+<form method="post" asp-action="Register">
+    <label class="form-label" for="usernameBox">Nazwa użytkownika: </label>
+    <input class="form-control" type="text" asp-for="username" id="usernameBox" maxlength="24" required><br>
+    <label class="form-label" for="emailBox">Adres e-mail: </label>
+    <input class="form-control" type="email" asp-for="email_address" id="emailBox" maxlength="128" required><br>
+    <label class="form-label" for="nicknameBox">Nazwa wyświetlania: </label>
+    <input class="form-control" type="text" asp-for="nickname" id="nicknameBox" maxlength="80" required><br>
+    <label class="form-label" for="descriptionBox">Opis: </label>
+    <input class="form-control" type="text" asp-for="description" id="descriptionBox"><br>
+    <label class="form-label" for="passwordBox">Podaj hasło: </label>
+    <input class="form-control" type="password" asp-for="password" id="passwordBox" required><br>
+    <label class="form-label" for="repasswordBox">Powtórz hasło: </label>
+    <input class="form-control" type="password" name="repassword" id="repasswordBox" required><br>
+    <button class="btn btn-submit" type="submit">Zarejestruj</button>
+</form>
+<script>
+    let registerBtn = document.querySelector("button:submit");
+
+    // Pierw zablokuj to
+    registerBtn.disabled = true;
+
+    document.getElementById("passwordBox").addEventListener("onkeyup", () => {
+        registerBtn.disabled = checkEquality();
+    });
+
+    document.getElementById("repasswordBox").addEventListener("onkeyup", () => {
+        registerBtn.disabled = checkEquality();
+    });
+
+    function checkEquality() : bool{
+        let password = document.getElementById("passwordBox").value;
+        let repassword = document.getElementById("repasswordBox").value;
+
+        return password == repassword;
+    }
+</script>

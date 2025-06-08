@@ -1,0 +1,91 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net9.0-android
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Bordico
+build_property.ProjectDir = /Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Colors.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/View/ConversationPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.View.ConversationPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View/ConversationPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View/ConversationPage.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/View/FriendsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.View.FriendsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View/FriendsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View/FriendsPage.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/View/HomePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.View.HomePage.xaml
+build_metadata.AdditionalFiles.TargetPath = View/HomePage.xaml
+build_metadata.AdditionalFiles.RelativePath = View/HomePage.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/View/LoginPagePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.View.LoginPagePage.xaml
+build_metadata.AdditionalFiles.TargetPath = View/LoginPagePage.xaml
+build_metadata.AdditionalFiles.RelativePath = View/LoginPagePage.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/View/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.View.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View/MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View/MainPage.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/View/NewConversationPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.View.NewConversationPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View/NewConversationPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View/NewConversationPage.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/View/RegisterPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.View.RegisterPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View/RegisterPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View/RegisterPage.xaml
+
+[/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/View/SettingsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Bordico.View.SettingsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View/SettingsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View/SettingsPage.xaml

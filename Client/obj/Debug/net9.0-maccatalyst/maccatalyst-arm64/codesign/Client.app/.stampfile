@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/obj/Debug/net9.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/bin/Debug/net9.0-maccatalyst/maccatalyst-arm64/Client.app

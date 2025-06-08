@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Bordico.ConversationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Bordico"
+    xmlns:model="clr-namespace:Bordico.Client.Model"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <Grid RowDefinitions="auto, 2*, auto">
+            <VerticalStackLayout Padding="8" Spacing="8">
+                <Label Text="{Binding Conversation.FriendName}" FontSize="Large" FontAttributes="Bold" />
+                <Label Text="{Binding Conversation.Description}" /> 
+                <Border Stroke="Black" StrokeThickness="1" />
+            </VerticalStackLayout>
+            <ScrollView Grid.Row="1">
+                <CollectionView ItemsSource="{Binding Messages}" x:Name="MessagesView">
+                    <CollectionView.ItemTemplate x:DataType="local:Message">
+                        <DataTemplate>
+                            <Border Margin="4" Padding="8" Stroke="Black" StrokeThickness="1" BackgroundColor="#EDEDE9">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="{Binding Author}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Content}" />
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Wysłano: " FontSize="Small" FontAttributes="Italic" />
+                                                <Span Text="{Binding SentAt}" FontSize="Small" FontAttributes="Italic" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </VerticalStackLayout>
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border" Binding="{Binding IsMine}" Value="True">
+                                        <Setter Property="BackgroundColor" Value="#8ECAE6" />
+                                    </DataTrigger>
+                                </Border.Triggers>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+            <Grid Padding="8" ColumnSpacing="8" Grid.Row="2" ColumnDefinitions="2*, auto">
+                <Entry Text="{Binding NewMessage.Content}" />
+                <Button Grid.Column="1" Text="Wyślij" Command="{Binding SendMessageCmd}" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

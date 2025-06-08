@@ -1,0 +1,21 @@
+// plugins {
+//     id 'com.android.application'
+//     id 'com.google.gms.google-services' // Google services plugin
+// }
+
+// android {
+//     namespace 'com.krzysztofsmaga.bordico'
+//     compileSdkVersion 33
+
+//     defaultConfig {
+//         applicationId "com.krzysztofsmaga.bordico"
+//         minSdkVersion 21
+//         targetSdkVersion 33
+//         versionCode 1
+//         versionName "1.0"
+//     }
+// }
+
+// dependencies {
+//     implementation 'com.google.firebase:firebase-analytics:21.2.0' // Analytics opcjonalnie
+// }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "436336438448",
+    "project_id": "bordico-7e6c9",
+    "storage_bucket": "bordico-7e6c9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436336438448:android:38415c36f5ddb49b5b5f75",
+        "android_client_info": {
+          "package_name": "com.krzysztofsmaga.bordico"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPXl5BiB5xaRrvYDjNDv8BarTQsxh5dWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

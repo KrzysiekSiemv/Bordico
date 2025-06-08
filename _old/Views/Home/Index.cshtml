@@ -1,0 +1,100 @@
+﻿@model MainPageViewModel
+@{
+    ViewData["Title"] = "Czat główny";
+}
+
+@if (ViewBag.CurrentUser != null && ViewBag.CurrentUser.id_user > 0)
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 border-end overflow-auto">
+                <h5 class="mt-2">Rozmowy</h5>
+                <ul class="list-group" id="userList">
+                    @if(Model.ConversationList.Count > 0){
+                        @foreach (var user in Model.ConversationList)
+                        {
+                            <li class="list-group-item chat-user" data-user-id="@user.UserId" data-conversation-id="@user.ConversationId">
+                                @user.UserName
+                            </li>
+                        }
+                    } else {
+                        <li class="list-group-item chat-user">
+                            Nie znaleziono konwersacji
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="col-md-9 d-flex flex-column">
+                <h2>Konwersacja z <span id="receiverNickname"></span></h2>
+                <div class="flex-grow-1 overflow-auto p-3" id="messages" style="max-height: calc(100vh - 150px);">
+                    <ul id="messageList">
+
+                    </ul>
+                </div>
+
+                <div class="border-top p-2 d-flex align-items-center">
+                    <input type="text" id="messageInput" class="form-control me-2" placeholder="Wpisz wiadomość..." />
+                    <button class="btn btn-primary" id="sendButton">Wyślij</button>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="UserID" value="@ViewBag.CurrentUser.id_user" id="userId" />
+        <input type="hidden" id="selectedUserId" />
+        <input type="hidden" id="selectedConversationId" />
+    </div>
+
+    <script src="~/js/signalr.js"></script>
+    <script src="~/js/chat.js"></script>
+}
+
+<style>
+    #messageList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .message-left,
+    .message-right {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    .message-left {
+        justify-content: flex-start;
+    }
+
+    .message-right {
+        justify-content: flex-end;
+    }
+
+    .message-box {
+        max-width: 70%;
+        padding: 10px 15px;
+        border-radius: 10px;
+        background-color: #f0f0f0;
+        border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
+        position: relative;
+    }
+
+    .message-right .message-box {
+        background-color: #03ac93;
+        color: white;
+    }
+
+    .sender-name {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .message-content {
+        white-space: pre-wrap;
+    }
+
+    .message-date {
+        font-size: 0.75rem;
+        color: #666;
+        margin-top: 5px;
+        text-align: right;
+    }
+</style>

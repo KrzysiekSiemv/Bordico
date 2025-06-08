@@ -1,0 +1,15 @@
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+    if(ViewBag.CurrentUser == null){
+        <form asp-action="login" method="post">
+            <label class="form-label" for="usernameBox">Nazwa użytkownika</label>
+            <input class="form-control" type="text" asp-for="Username" id="usernameBox"><br>
+            <label class="form-label" for="passwordBox">Hasło</label>
+            <input class="form-control" type="password" asp-for="Password" id="passwordBox">
+            <button type="submit" class="btn btn-success">Zaloguj się</button>
+        </form>
+    } else {
+        <h2>Witaj, @ViewBag.CurrentUser.nickname!</h2>
+    }
+}    

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="Bordico.Client.View.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Bordico"
+    xmlns:vm="clr-namespace:Bordico.Client.ViewModel"
+    x:DataType="vm:HomeViewModel"
+    x:Name="ThisPage"
+    Title="Strona główna"
+    mc:Ignorable="d">
+    <Grid RowDefinitions="auto, auto, auto, auto, 2*" RowSpacing="8" Padding="12">
+        <Label Text="{Binding WelcomeLbl}" FontSize="Large" Grid.Row="0" />
+        <Button Grid.Row="1" Text="Nowa wiadomość" />
+        <Border Grid.Row="2" Stroke="Black" StrokeThickness="2" />
+        <Label Grid.Row="3" Text="Twoje konwersacje:" />
+        <ListView Grid.Row="4" ItemsSource="{Binding ConversationList}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:Conversations">
+                    <ViewCell>
+                        <Label VerticalTextAlignment="Center" FontSize="16">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding FriendName}" FontAttributes="Bold" />
+                                    <Span Text=" - " />
+                                    <Span Text="{Binding Description}" FontAttributes="Italic" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={x:Reference ThisPage}, Path=BindingContext.EnterConversationCmd}"  
+                                    CommandParameter="{Binding .}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </ViewCell>  
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

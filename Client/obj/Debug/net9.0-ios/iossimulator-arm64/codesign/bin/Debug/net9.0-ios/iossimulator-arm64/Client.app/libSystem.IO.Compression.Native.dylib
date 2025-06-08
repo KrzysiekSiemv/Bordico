@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/bin/Debug/net9.0-ios/iossimulator-arm64/Client.app/libSystem.IO.Compression.Native.dylib
