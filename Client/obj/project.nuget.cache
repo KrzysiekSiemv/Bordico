@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/HGurwhvA4o=",
+  "dgSpecHash": "UeZH1pDYW7o=",
   "success": true,
   "projectFilePath": "/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Client/Client.csproj",
   "expectedPackageFiles": [
@@ -123,7 +123,10 @@
     "/Users/krzysiek/.nuget/packages/xamarin.kotlinx.coroutines.core/1.9.0.2/xamarin.kotlinx.coroutines.core.1.9.0.2.nupkg.sha512",
     "/Users/krzysiek/.nuget/packages/xamarin.kotlinx.coroutines.core.jvm/1.9.0.2/xamarin.kotlinx.coroutines.core.jvm.1.9.0.2.nupkg.sha512",
     "/Users/krzysiek/.nuget/packages/xamarin.kotlinx.serialization.core/1.7.3.2/xamarin.kotlinx.serialization.core.1.7.3.2.nupkg.sha512",
-    "/Users/krzysiek/.nuget/packages/xamarin.kotlinx.serialization.core.jvm/1.7.3.2/xamarin.kotlinx.serialization.core.jvm.1.7.3.2.nupkg.sha512"
+    "/Users/krzysiek/.nuget/packages/xamarin.kotlinx.serialization.core.jvm/1.7.3.2/xamarin.kotlinx.serialization.core.jvm.1.7.3.2.nupkg.sha512",
+    "/Users/krzysiek/.nuget/packages/microsoft.netcore.app.ref/9.0.5/microsoft.netcore.app.ref.9.0.5.nupkg.sha512",
+    "/Users/krzysiek/.nuget/packages/microsoft.netcore.app.ref/9.0.5/microsoft.netcore.app.ref.9.0.5.nupkg.sha512",
+    "/Users/krzysiek/.nuget/packages/microsoft.netcore.app.ref/9.0.5/microsoft.netcore.app.ref.9.0.5.nupkg.sha512"
   ],
   "logs": []
 }

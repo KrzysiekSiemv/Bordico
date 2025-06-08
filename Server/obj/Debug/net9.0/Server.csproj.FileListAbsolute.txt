@@ -158,3 +158,4 @@
 /Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Server/bin/Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll
 /Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Server/bin/Debug/net9.0/Microsoft.OpenApi.dll
 /Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Server/obj/Debug/net9.0/Server.MvcApplicationPartsAssemblyInfo.cs
+/Users/krzysiek/Projekty/Aplikacje/PRYWATNE/Bordico/Server/obj/Debug/net9.0/Server.sourcelink.json

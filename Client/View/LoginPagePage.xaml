@@ -10,7 +10,6 @@
     mc:Ignorable="d">
     <ContentPage.Content>
         <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
-            <Label Text="Bordico" />
             <Label Text="Zaloguj się" FontSize="32" HorizontalOptions="Center" />
             <Entry x:Name="UsernameEntry" Placeholder="Nazwa użytkownika" Text="{Binding Username}" />
             <Entry x:Name="PasswordEntry" Placeholder="Hasło" IsPassword="True" Text="{Binding Password}" />

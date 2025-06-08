@@ -15,27 +15,24 @@ namespace Bordico.Server.Hubs {
         {
             _context = context;
         }
-
     
-        // public override Task OnConnectedAsync()
-        // {
-        //     var httpContext = Context.GetHttpContext();
-        //     if (httpContext == null) return base.OnConnectedAsync();
+        public override Task OnConnectedAsync()
+        {
+            var httpContext = Context.GetHttpContext();
+            var query = httpContext?.Request?.Query;
 
-        //     var id_user = httpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+            if (query != null && query.TryGetValue("conversationId", out var conversationId))
+            {
+                Console.WriteLine("Połączono do rozmowy: " + conversationId);
+                Groups.AddToGroupAsync(Context.ConnectionId, $"conversation_{conversationId}");
+            }
 
-        //     if (id_user != null && int.TryParse(id_user.Value, out int id))
-        //     {
-        //         _userConnections[id] = Context.ConnectionId;
-        //     }
-
-        //     return base.OnConnectedAsync();
-        // }
+            return base.OnConnectedAsync();
+        }
 
 
         public async Task SendMessage(int receiverId, int senderId, string senderNickname, string message)
         {
-
             var conversation = await _context.conversations
                 .Where(c => (c.id_first_user == senderId && c.id_second_user == receiverId) ||
                             (c.id_first_user == receiverId && c.id_second_user == senderId))
@@ -56,26 +53,35 @@ namespace Bordico.Server.Hubs {
             });
             await _context.SaveChangesAsync();
 
-            if (_userConnections.TryGetValue(receiverId, out var receiverConnId))
-                await Clients.Client(receiverConnId).SendAsync("ReceiveMessage", senderId, conversation.id_conversation, senderNickname, message, DateTime.UtcNow);
+            Console.WriteLine("Wysłano!");
 
-            await Clients.Client(Context.ConnectionId).SendAsync("ReceiveMessage", senderId, conversation.id_conversation, senderNickname, message, DateTime.UtcNow);
+            // if (_userConnections.TryGetValue(receiverId, out var receiverConnId))
+            // {
+            //     await Clients.Group(receiverConnId).SendAsync("ReceiveMessage", senderId, conversation.id_conversation, senderNickname, message, DateTime.UtcNow);
+            //     Console.WriteLine(receiverConnId);
+            // }
+            await Clients.Group($"conversation_{conversation.id_conversation}").SendAsync("ReceiveMessage", senderId, conversation.id_conversation, senderNickname, message, DateTime.UtcNow);
+            Console.WriteLine(Context.ConnectionId);
         }
 
-        // public override Task OnDisconnectedAsync(Exception? exception)
-        // {
-        //     var httpContext = Context.GetHttpContext();
-        //     if (httpContext == null) return base.OnDisconnectedAsync(exception);
+        public Task JoinConversation(string conversationId)
+        {
+            return Groups.AddToGroupAsync(Context.ConnectionId, $"conversation_{conversationId}");
+        }
 
-        //     var id_user = httpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+        public override Task OnDisconnectedAsync(Exception? exception)
+        {
+            var httpContext = Context.GetHttpContext();
+            var query = httpContext?.Request?.Query;
 
-        //     if (id_user != null && int.TryParse(id_user.Value, out int id))
-        //     {
-        //         _userConnections.Remove(id);
-        //     }
+            if (query != null && query.TryGetValue("conversationId", out var conversationId))
+            {
+                Console.WriteLine("Połączono do rozmowy: " + conversationId);
+                Groups.RemoveFromGroupAsync(Context.ConnectionId, $"conversation_{conversationId}");
+            }
 
-        //     return base.OnDisconnectedAsync(exception);
-        // }
+            return base.OnDisconnectedAsync(exception);
+        }
 
     }
 }

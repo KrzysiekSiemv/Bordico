@@ -9,13 +9,14 @@
     Title="Zarejestruj się do Bordico"
     mc:Ignorable="d">
     <ContentPage.Content>
-        <Grid>
-            <Label
-                FontSize="18"
-                HorizontalOptions="Center"
-                Text="Welcome to .NET MAUI!!!"
-                TextColor="Purple"
-                VerticalOptions="Center" />
-        </Grid>
+        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+            <Label Text="Zarejestruj się" FontSize="32" HorizontalOptions="Center" />
+            <Entry x:Name="UsernameEntry" Placeholder="Nazwa użytkownika" Text="{Binding Username}" />
+            <Label Text="Adres e-mail" FontSize="32" HorizontalOptions="Center" />
+            <Entry x:Name="EmailEntry" Placeholder="Adres E-mail" Text="{Binding EmailAddress}" />
+            <Entry x:Name="PasswordEntry" Placeholder="Hasło" IsPassword="True" Text="{Binding Password}" />
+            <Label x:Name="ErrorLabel" TextColor="Red" IsVisible="False" />
+            <Button Text="Zarejestruj" Command="{Binding LoginCommand}" />
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -8,8 +8,8 @@
     xmlns:local="clr-namespace:Bordico"
     mc:Ignorable="d">
     <ContentPage.Content>
-        <Grid>
+        <VerticalStackLayout>
             <Button Text="Wyloguj" Clicked="Button_Clicked" />
-        </Grid>
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>

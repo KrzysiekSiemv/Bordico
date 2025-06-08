@@ -14,8 +14,8 @@ public class ConversationViewModel : INotifyPropertyChanged
     private readonly RestService _api;
     private Conversations _conversation;
     private readonly Page _page;
-    private readonly INavigation _navigation;
     private readonly HubConnection _conn;
+    private readonly User _user;
 
     public event PropertyChangedEventHandler? PropertyChanged;
     public event Action? ScrollToEndRequested;
@@ -40,33 +40,31 @@ public class ConversationViewModel : INotifyPropertyChanged
         _api = api;
         Conversation = conversation;
         _page = page;
-        _navigation = navigation;
-        string url = $"{Constants.Server}/Chat";
-        _page.DisplayAlert("Link", url, "OK");
+
+        string url = $"{Constants.Server}/Chat?conversationId={Conversation.Id}";
         _conn = new HubConnectionBuilder().WithUrl(url).Build();
 
+        var user_json = Preferences.Get("user", "");
+        _user = JsonSerializer.Deserialize<User>(user_json) ?? new();
+
         Task.Run(GetMessages);
-        TestConnection();
 
         SendMessageCmd = new Command(async () => await SendMessage());
-
         _conn.On<int, int, string, string, DateTime>("ReceiveMessage", (senderId, conversationId, senderNickname, message, sentAt) =>
         {
             if (conversationId == Conversation.Id)
             {
-                MainThread.BeginInvokeOnMainThread(() =>
+                Messages.Add(new Message()
                 {
-                    Messages.Add(new Message()
-                    {
-                        Id = senderId,
-                        Author = senderNickname,
-                        Content = message,
-                        SentAt = sentAt.ToString(),
-                        IsMine = senderId.ToString() == ClaimTypes.NameIdentifier
-                    });
-
-                    ScrollToEndRequested?.Invoke();
+                    Id = senderId,
+                    Author = senderNickname,
+                    Content = message,
+                    SentAt = sentAt.ToString(),
+                    IsMine = senderId.ToString() == ClaimTypes.NameIdentifier
                 });
+
+                OnPropertyChanged(nameof(Messages));
+                ScrollToEndRequested?.Invoke();
             }
         });
 
@@ -75,6 +73,7 @@ public class ConversationViewModel : INotifyPropertyChanged
             try
             {
                 await _conn.StartAsync();
+                await _conn.InvokeAsync("JoinConversation", Conversation.Id.ToString());
             }
             catch (Exception ex)
             {
@@ -104,9 +103,10 @@ public class ConversationViewModel : INotifyPropertyChanged
                         Author = message.senderNickname,
                         Content = message.content,
                         SentAt = message.sentAt.ToString(),
-                        IsMine = message.senderId.ToString() == ClaimTypes.NameIdentifier
+                        IsMine = message.senderId != _user.id_user
                     });
 
+                    OnPropertyChanged(nameof(Messages));
                     ScrollToEndRequested?.Invoke();
                 });
             }
@@ -135,16 +135,10 @@ public class ConversationViewModel : INotifyPropertyChanged
     {
         try
         {
-            var user_json = Preferences.Get("user", "");
-            if (user_json == null) return;
-
-            var user = JsonSerializer.Deserialize<User>(user_json);
-            if(user == null) return;
-            
             await _conn.InvokeCoreAsync("SendMessage", args: [
                 _conversation.FriendId,
-                user.id_user,
-                user.nickname,
+                _user.id_user,
+                _user.nickname,
                 NewMessage.Content
             ]);
 
